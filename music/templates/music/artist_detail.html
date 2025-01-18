@@ -1,0 +1,25 @@
+{% extends "music/base.html" %}
+
+{% block title %}
+<title>Artist | {{ artist }} </title>
+{% endblock %}
+
+{% block content %}
+<section id="artist-page">
+    <h2>{{ artist }} </h2>
+
+    <h3>Álbums:</h3>
+    <ul>
+        {% for album in artist.album_set.all %}
+        <ol>{{ album }}</ol>
+        {% endfor %}
+    </ul>
+
+    <form action="{% url 'artist_detail' artist.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Guardar"/>
+    </form>
+
+</section>
+{% endblock %}

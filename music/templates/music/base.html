@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% block title %}<title>Your Music App</title>{% endblock %}
+    <meta charset="UTF-8" />
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}" />
+
+</head>
+
+<body>
+    <div id="main-container">
+        <!-- Cabecera de página -->
+        <header>
+            <h1><a href="{% url 'index' %}">Music App</a></h1>
+        </header>
+
+        <!-- Menú de navegación -->
+        <nav>
+            <ul id="menu" >
+                <li id="menu-title">Menú</li>
+                <li class="menu-item">
+                    <a href="{% url 'artists' %}">Artistas</a>
+                </li>
+                <li class="menu-item">
+                    <a href="{% url 'albums' %}">Álbumes</a>
+                </li>
+                <li class="menu-item">
+                    <a href="">Conciertos</a>
+                </li>
+                <li class="menu-item">
+                    <a href="">Videos</a>
+                </li>
+                <!-- Esta parte es para validar que se pueda linkear a lo que hemos visto en clase, más rápido -->
+                <li class="menu-item">
+                    <a href="/">Home</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/">Admin</a>
+                </li>
+            </ul>
+        </nav>
+
+        {% block content %}
+        {% endblock %}
+
+        <!-- Pie de página -->
+        <footer>Copyright © Python y la Web, 2025. Más información en la <a href="https://www.claseejecutiva.uc.cl/">página de La Clase Ejecutiva.</a></footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{% extends "music/index.html" %}
+{% block title %}
+<title>Artistas </title>
+{% endblock %}
+
+{% block content %}
+<section id="artists-section">
+    <h2>Artistas</h2>
+    <ol>
+        {% for artist in artists %}
+        <li class="artist">
+            <a href="{% url 'artist_detail' artist.id %}">{{ artist }}</a>
+        </li>
+        {% endfor %}
+    </ol>
+</section>
+{% endblock %}
